@@ -1,0 +1,29 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/lt_blue</item>
+        <item name="colorPrimaryDark">@color/lt_darkblue</item>
+        <item name="colorAccent">@color/lt_orange</item>
+    </style>
+
+    <style name="LargeText" parent="android:TextAppearance.DeviceDefault.Large"></style>
+
+    <style name="MediumText" parent="android:TextAppearance.DeviceDefault.Medium"></style>
+
+    <style name="SmallText" parent="android:TextAppearance.DeviceDefault.Small"></style>
+
+    <style name="SmallerText" parent="android:TextAppearance.DeviceDefault.Small">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="SmallestText" parent="android:TextAppearance.DeviceDefault.Small">
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+</resources>

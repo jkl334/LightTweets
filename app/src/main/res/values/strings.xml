@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">LightTweets</string>
+    <string name="sign_in_with_twitter">Sign in with Twitter</string>
+    <string name="sign_in_success">Sign in Success!</string>
+    <string name="sign_in_failure">Sorry! There was a problem signing in. Please check your data connection and try again.</string>
+    <string name="desc">Insensi Test App - Light Twitter</string>
+    <string name="author">Jefferson Lee</string>
+    <string name="title_activity_tweet">TweetActivity</string>
+</resources>

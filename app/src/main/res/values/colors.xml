@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="lt_orange">#EB3B24</color>
+    <color name="lt_shadow">#22252525</color>
+    <color name="lt_blue">#557c90</color>
+    <color name="lt_grey">#e2e2e2</color>
+    <color name="lt_darkblue">#335b74</color>
+
+</resources>
