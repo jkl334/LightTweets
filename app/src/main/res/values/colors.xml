@@ -4,6 +4,8 @@
     <color name="lt_shadow">#22252525</color>
     <color name="lt_blue">#557c90</color>
     <color name="lt_grey">#e2e2e2</color>
+    <color name="lt_light_grey_text">#666666</color>
+    <color name="lt_dark_grey">#ec222222</color>
     <color name="lt_darkblue">#335b74</color>
 
 </resources>

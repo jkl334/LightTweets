@@ -10,7 +10,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import co.jeffersonjeonglee.lighttweets.ApplicationController;
+import co.jeffersonjeonglee.lighttweets.application.ApplicationController;
 import co.jeffersonjeonglee.lighttweets.R;
 import co.jeffersonjeonglee.lighttweets.application.LightTweetsApplication;
 import co.jeffersonjeonglee.lighttweets.shared.Dimensions;
@@ -59,7 +59,8 @@ public class TopBar extends FrameLayout {
         tweetButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                applicationController.notifyOnComposeTweetRequested();
+                //applicationController.notifyOnComposeTweetRequested();
+                applicationController.requestUserFeed();
             }
         });
     }

@@ -3,7 +3,6 @@ package co.jeffersonjeonglee.lighttweets;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,8 +13,7 @@ import com.twitter.sdk.android.core.TwitterSession;
 import com.twitter.sdk.android.tweetcomposer.ComposerActivity;
 import com.twitter.sdk.android.tweetcomposer.TweetComposer;
 
-import java.io.File;
-
+import co.jeffersonjeonglee.lighttweets.application.ApplicationController;
 import co.jeffersonjeonglee.lighttweets.application.LightTweetsApplication;
 import co.jeffersonjeonglee.lighttweets.shared.SharedConstants;
 import io.fabric.sdk.android.Fabric;

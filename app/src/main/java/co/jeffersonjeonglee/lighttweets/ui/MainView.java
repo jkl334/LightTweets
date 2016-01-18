@@ -5,10 +5,16 @@ import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import android.widget.ListView;
 
+import com.twitter.sdk.android.core.TwitterApiClient;
+import com.twitter.sdk.android.core.TwitterCore;
+import com.twitter.sdk.android.core.models.Tweet;
 import com.twitter.sdk.android.tweetui.TweetTimelineListAdapter;
 import com.twitter.sdk.android.tweetui.UserTimeline;
 
-import co.jeffersonjeonglee.lighttweets.ApplicationController;
+import java.util.ArrayList;
+
+import co.jeffersonjeonglee.lighttweets.UserTimelineAdapter;
+import co.jeffersonjeonglee.lighttweets.application.ApplicationController;
 import co.jeffersonjeonglee.lighttweets.application.LightTweetsApplication;
 import co.jeffersonjeonglee.lighttweets.shared.SharedConstants;
 import co.jeffersonjeonglee.lighttweets.util.LayoutUtil;
@@ -18,16 +24,23 @@ import co.jeffersonjeonglee.lighttweets.util.LayoutUtil;
  */
 public class MainView extends FrameLayout {
 
+    private TwitterApiClient twitterApiClient;
+    private UserTimelineAdapter adapter;
+
     private ApplicationController applicationController;
     private ApplicationController.ApplicationControllerListener applicationControllerListener = new ApplicationController.ApplicationControllerListener() {
         @Override
         public void onFeedRefreshRequested() {
-            final UserTimeline userTimeline = new UserTimeline.Builder()
-                    .screenName(applicationController.getTwitterSession().getUserName())
-                    .build();
-            final TweetTimelineListAdapter adapter = new TweetTimelineListAdapter.Builder(getContext())
-                    .setTimeline(userTimeline)
-                    .build();
+            applicationController.requestUserFeed();
+        }
+
+        @Override
+        public void onUserTimelineFetchSuccess(ArrayList<Tweet> tweets) {
+            if (adapter == null) {
+                adapter = new UserTimelineAdapter(tweets);
+            } else {
+                adapter.setTweets(tweets);
+            }
             listView.setAdapter(adapter);
         }
     };
@@ -50,14 +63,15 @@ public class MainView extends FrameLayout {
 
         //Twitter user feed (using twitter kit)
         listView = new ListView(context);
-        final UserTimeline userTimeline = new UserTimeline.Builder()
-                .screenName(applicationController.getTwitterSession().getUserName())
-                .build();
-        final TweetTimelineListAdapter adapter = new TweetTimelineListAdapter.Builder(context)
-                .setTimeline(userTimeline)
-                .build();
-        listView.setAdapter(adapter);
+        //final UserTimeline userTimeline = new UserTimeline.Builder()
+        //        .screenName(applicationController.getTwitterSession().getUserName())
+        //        .build();
+        //final TweetTimelineListAdapter adapter = new TweetTimelineListAdapter.Builder(context)
+        //        .setTimeline(userTimeline)
+        //        .build();
+        //listView.setAdapter(adapter);
         addView(listView);
+
     }
 
     public MainView(Context context, AttributeSet attrs, int defStyleAttr) {
@@ -82,6 +96,7 @@ public class MainView extends FrameLayout {
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
         applicationController.addListener(applicationControllerListener);
+        applicationController.requestUserFeed();
     }
 
     @Override

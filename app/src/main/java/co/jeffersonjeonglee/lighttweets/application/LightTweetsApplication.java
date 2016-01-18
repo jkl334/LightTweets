@@ -3,11 +3,11 @@ package co.jeffersonjeonglee.lighttweets.application;
 import android.app.Application;
 import android.util.Log;
 
-import com.twitter.sdk.android.core.TwitterSession;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
 
 import java.util.HashMap;
 
-import co.jeffersonjeonglee.lighttweets.ApplicationController;
 import co.jeffersonjeonglee.lighttweets.shared.Dimensions;
 import co.jeffersonjeonglee.lighttweets.shared.SharedConstants;
 
@@ -16,6 +16,7 @@ import co.jeffersonjeonglee.lighttweets.shared.SharedConstants;
  */
 public class LightTweetsApplication extends Application {
 
+    private static RequestQueue requestQueue;
     private static String LOG_TAG = "LightTweetsApplication";
     private static HashMap<String, DependencyBaseInterface> controllerHashMap = new HashMap<>();
     private ApplicationController applicationController;
@@ -23,6 +24,7 @@ public class LightTweetsApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        requestQueue = Volley.newRequestQueue(this);
         Dimensions.initialize(getResources());
         initControllers();
     }
@@ -40,6 +42,12 @@ public class LightTweetsApplication extends Application {
             return null;
         }
     }
+
+    public static RequestQueue getRequestQueue() {
+        return requestQueue;
+    }
+
+
 
 
 }

@@ -15,6 +15,7 @@ import com.twitter.sdk.android.core.TwitterException;
 import com.twitter.sdk.android.core.TwitterSession;
 import com.twitter.sdk.android.core.identity.TwitterLoginButton;
 
+import co.jeffersonjeonglee.lighttweets.application.ApplicationController;
 import co.jeffersonjeonglee.lighttweets.application.LightTweetsApplication;
 import co.jeffersonjeonglee.lighttweets.shared.SharedConstants;
 import io.fabric.sdk.android.Fabric;
