@@ -1,1 +1,1 @@
-Light Tweets - Tech Test for Insensi   Jeff Lee
+Light Twitter feed and tweet application
